@@ -46,4 +46,11 @@ public class User {
             updatedAt = LocalDateTime.now();
         }
     }
+
+    public User(String name, String email, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.name = name;
+        this.email = email;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 }
