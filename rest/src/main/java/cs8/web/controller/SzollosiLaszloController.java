@@ -1,4 +1,4 @@
-package cs8.web.controller;
+﻿package cs8.web.controller;
 
 import cs8.entity.User;
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/szm")
 @Slf4j
-public class SzaboMateController {
+public class Szőllősi LászlóController {
 
     @GetMapping("")
     public User getUser() {
         log.info("process=get-users");
-        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        return new User("Szőllősi László", "naintarlow@freemail.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
 
