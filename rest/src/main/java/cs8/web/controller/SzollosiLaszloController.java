@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/szm")
+@RequestMapping("/api/szl")
 @Slf4j
 public class Szőllősi LászlóController {
 
