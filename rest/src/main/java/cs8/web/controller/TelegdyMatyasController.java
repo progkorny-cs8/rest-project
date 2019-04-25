@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/szm")
 @Slf4j
-public class SzaboMateController {
+public class TelegdyMatyasController {
 
     @GetMapping("")
     public User getUser() {
         log.info("process=get-users");
-        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        return new User("Telegdy Mátyás", "matyitelegdy@mailbox.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
 
