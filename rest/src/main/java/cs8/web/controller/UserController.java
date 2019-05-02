@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 @Slf4j
 public class UserController {
 
@@ -24,13 +25,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @GetMapping("/users")
     public List<User> getUsers() {
         log.info("process=get-users");
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         log.info("process=get-user, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
@@ -38,24 +39,36 @@ public class UserController {
                    .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("")
+    @PostMapping("/users")
     @ResponseStatus(CREATED)
     public User createUser(@RequestBody User user) {
         log.info("process=create-user, user_email={}", user.getEmail());
         return userService.createUser(user);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         log.info("process=update-user, user_id={}", id);
         user.setId(id);
         return userService.updateUser(user);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable Long id) {
         log.info("process=delete-user, user_id={}", id);
         userService.deleteUser(id);
+    }
+
+    @GetMapping("/szm")
+    public User getUser() {
+        log.info("process=get-users");
+        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+    }
+
+    @GetMapping("/print")
+    public String print(){
+        System.out.println("Szabó Máté");
+        return "Szabó Máté";
     }
 
 }
