@@ -70,7 +70,6 @@ public class UserController {
     public String print(){
         System.out.println("Nagy Tamás");
         return "Nagy Tamás";
-        return "Szabó Máté-05-02-9-05";
     }
 
 }
