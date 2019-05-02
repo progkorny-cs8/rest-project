@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 @Slf4j
 public class UserController {
 
@@ -25,25 +25,26 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @GetMapping("/users")
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
+        log.info("process=get-user-by-id, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
         return user.map( u -> ResponseEntity.ok(u))
                    .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("")
+    @PostMapping("/users")
     @ResponseStatus(CREATED)
     public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         user.setId(id);
         return userService.updateUser(user);
@@ -58,6 +59,18 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+
+    @GetMapping("/szm")
+    public User getUser() {
+        log.info("process=get-users");
+        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+    }
+
+    @GetMapping("/print")
+    public String print(){
+        System.out.println("09:01");
+        System.out.println("Szabó Máté-05-02-8-59");
+        return "Szabó Máté-05-02-8:59";
     }
 
 }
