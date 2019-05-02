@@ -49,7 +49,10 @@ public class UserController {
         user.setId(id);
         return userService.updateUser(user);
     }
-    
+    @GetMapping("dt")
+    public User getRekt() {
+        return new User("Dudás Tamás", "d.tomi97@hotmail.com", LocalDateTime.now(), LocalDateTime.now());
+    }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
