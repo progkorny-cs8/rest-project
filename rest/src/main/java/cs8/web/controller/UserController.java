@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,13 +27,11 @@ public class UserController {
 
     @GetMapping("")
     public List<User> getUsers() {
-        log.info("process=get-users");
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        log.info("process=get-user, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
         return user.map( u -> ResponseEntity.ok(u))
                    .orElse(ResponseEntity.notFound().build());
@@ -41,20 +40,23 @@ public class UserController {
     @PostMapping("")
     @ResponseStatus(CREATED)
     public User createUser(@RequestBody User user) {
-        log.info("process=create-user, user_email={}", user.getEmail());
         return userService.createUser(user);
     }
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        log.info("process=update-user, user_id={}", id);
         user.setId(id);
         return userService.updateUser(user);
     }
+    
 
+    @GetMapping("dt")
+    public User getUser() {
+        return new User("Dudás Tamás", "d.tomi97@hotmail.com", LocalDateTime.now(), LocalDateTime.now());
+    }
+    
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
-        log.info("process=delete-user, user_id={}", id);
         userService.deleteUser(id);
     }
 
