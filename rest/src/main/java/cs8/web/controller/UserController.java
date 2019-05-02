@@ -27,11 +27,10 @@ public class UserController {
 
     @GetMapping("/users")
     public List<User> getUsers() {
-        log.info("process=get-users");
         return userService.getAllUsers();
     }
 
-    @GetMapping("/users/tm")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         log.info("process=get-user-by-id, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
@@ -42,29 +41,39 @@ public class UserController {
     @PostMapping("/users")
     @ResponseStatus(CREATED)
     public User createUser(@RequestBody User user) {
-        log.info("process=create-user, user_email={}", user.getEmail());
         return userService.createUser(user);
     }
 
-    @PutMapping("/users/tm")
+    @PutMapping("/users/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        log.info("process=update-user, user_id={}", id);
         user.setId(id);
         return userService.updateUser(user);
     }
+    
 
+    @GetMapping("dt")
+    public User getUser() {
+        return new User("Dudás Tamás", "d.tomi97@hotmail.com", LocalDateTime.now(), LocalDateTime.now());
+    }
+    
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+
+    @GetMapping("/szm")
+    public User getUser() {
+        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+    }
 
     @GetMapping("tm")
-    public User getUser() {
-        log.info("process=get-users");
-        return new User("Telegdy Mátyás", "matyitelegdy@mailbox.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
-    }
+        public User getUser() {
+            log.info("process=get-users");
+            return new User("Telegdy Mátyás", "matyitelegdy@mailbox.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        }
 
     @GetMapping("/print")
     public String print(){
-        System.out.println("06:12");
-        System.out.println("Telegdy Mátyás-09-01-8-59");
-        return "Telegdy Mátyás-09-01-6:12";
+        return "Szabó Máté-05-02-8:59 Telegdy Mátyás-09-01-6:12";
     }
 
 }
