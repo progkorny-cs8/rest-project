@@ -59,7 +59,7 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("")
+    @GetMapping("/szl")
     public User getUser() {
         log.info("process=get-users");
         return new User("Szöllősi László", "naintarlow@freemail.hu", LocalDateTime.now(), LocalDateTime.now());
@@ -69,6 +69,7 @@ public class UserController {
     public String print(){
         System.out.println("Szőllősi László");
         return "Szőllősi László";
+
     }
 
 }
