@@ -18,6 +18,4 @@ public class NagyTamasController {
         log.info("process=get-users");
         return new User("Nagy Tamás", "bruntyo@gmail.com", LocalDateTime.now(), LocalDateTime.now());
     }
-
-
 }

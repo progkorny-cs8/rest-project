@@ -62,14 +62,11 @@ public class UserController {
 
     @GetMapping("/szm")
     public User getUser() {
-        log.info("process=get-users");
         return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
     @GetMapping("/print")
     public String print(){
-        System.out.println("09:01");
-        System.out.println("Szabó Máté-05-02-8-59");
         return "Szabó Máté-05-02-8:59";
     }
 
