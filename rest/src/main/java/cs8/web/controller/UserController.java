@@ -1,4 +1,4 @@
-package cs8.web.controller;
+﻿package cs8.web.controller;
 
 import cs8.entity.User;
 import cs8.service.UserService;
@@ -59,16 +59,16 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    @GetMapping("/szm")
+    @GetMapping("")
     public User getUser() {
         log.info("process=get-users");
-        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        return new User("Szöllősi László", "naintarlow@freemail.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
     @GetMapping("/print")
     public String print(){
-        System.out.println("Szabó Máté");
-        return "Szabó Máté";
+        System.out.println("Szőllősi László");
+        return "Szőllősi László";
     }
 
 }
