@@ -60,10 +60,16 @@ public class UserController {
         return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
+    @GetMapping("/nt")
+    public User getUser() {
+        log.info("process=get-users");
+        return new User("Nagy Tamás", "bruntyo@gmail.com", LocalDateTime.now(), LocalDateTime.now());
+    }
+
     @GetMapping("/print")
     public String print(){
-        System.out.println("09:01");
-        System.out.println("Szabó Máté-05-02-9-05");
+        System.out.println("Nagy Tamás");
+        return "Nagy Tamás";
         return "Szabó Máté-05-02-9-05";
     }
 
