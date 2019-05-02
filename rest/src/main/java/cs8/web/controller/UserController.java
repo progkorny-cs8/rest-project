@@ -61,7 +61,7 @@ public class UserController {
     }
 
     @GetMapping("/nt")
-    public User getUser() {
+    public User getNagyT() {
         log.info("process=get-users");
         return new User("Nagy Tamás", "bruntyo@gmail.com", LocalDateTime.now(), LocalDateTime.now());
     }
