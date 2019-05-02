@@ -60,10 +60,17 @@ public class UserController {
         return new User("Szöllősi László", "naintarlow@freemail.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
+    @GetMapping("/nt")
+    public User getUser() {
+        log.info("process=get-users");
+        return new User("Nagy Tamás", "bruntyo@gmail.com", LocalDateTime.now(), LocalDateTime.now());
+    }
+
     @GetMapping("/print")
     public String print(){
         System.out.println("Szőllősi László");
         return "Szőllősi László";
+
     }
 
 }
