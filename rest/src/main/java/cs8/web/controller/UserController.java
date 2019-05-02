@@ -51,7 +51,7 @@ public class UserController {
     }
 
     @GetMapping("dt")
-    public User getUser() {
+    public User getRekt() {
         return new User("Dudás Tamás", "d.tomi97@hotmail.com", LocalDateTime.now(), LocalDateTime.now());
     }
 
