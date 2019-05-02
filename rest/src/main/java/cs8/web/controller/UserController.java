@@ -62,6 +62,7 @@ public class UserController {
 
     @GetMapping("/print")
     public String print(){
+        System.out.println("09:01");
         System.out.println("Szabó Máté-05-02-8-59");
         return "Szabó Máté-05-02-8:59";
     }
