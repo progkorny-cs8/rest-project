@@ -59,15 +59,17 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+    }
 
     @GetMapping("/szm")
-    public User getUser() {
+    public User getUserSZM() {
         return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
     @GetMapping("/print")
     public String print(){
-        return "Szabó Máté-05-02-8:59";
+        System.out.println("09:17");
+        return "Szabó Máté-05-02-9-17";
     }
 
 }
