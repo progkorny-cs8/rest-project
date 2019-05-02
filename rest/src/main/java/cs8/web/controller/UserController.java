@@ -31,7 +31,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/tm")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
         log.info("process=get-user-by-id, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
@@ -46,7 +46,7 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/users/tm")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
         log.info("process=update-user, user_id={}", id);
         user.setId(id);
@@ -54,17 +54,17 @@ public class UserController {
     }
 
 
-    @GetMapping("/szm")
+    @GetMapping("tm")
     public User getUser() {
         log.info("process=get-users");
-        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        return new User("Telegdy Mátyás", "matyitelegdy@mailbox.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
     }
 
     @GetMapping("/print")
     public String print(){
-        System.out.println("09:01");
-        System.out.println("Szabó Máté-05-02-8-59");
-        return "Szabó Máté-05-02-8:59";
+        System.out.println("06:12");
+        System.out.println("Telegdy Mátyás-09-01-8-59");
+        return "Telegdy Mátyás-09-01-6:12";
     }
 
 }
