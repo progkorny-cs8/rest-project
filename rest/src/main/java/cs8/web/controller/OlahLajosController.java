@@ -15,6 +15,7 @@ public class OlahLajosController {
 
     @GetMapping("")
     public User getUser() {
+        log.info("process=get-users");
         return new User("Oláh Lajos", "olalika98@gmail.com", LocalDateTime.now(), LocalDateTime.now());
     }
 

@@ -54,7 +54,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/szm")
+    @GetMapping("/ol")
     public User getUser() {
         log.info("process=get-users");
         return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
@@ -63,8 +63,8 @@ public class UserController {
     @GetMapping("/print")
     public String print(){
         System.out.println("09:01");
-        System.out.println("Szabó Máté-05-02-9-05");
-        return "Szabó Máté-05-02-9-05";
+        System.out.println("Oláh Lajos-05-02-9-05");
+        return "Oláh Lajos-05-02-9-05";
     }
 
 }
