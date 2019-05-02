@@ -73,4 +73,10 @@ public class UserController {
 
     }
 
+    @GetMapping("/print/asd")
+    public String printasd(){
+        System.out.println("asd");
+        return "asd";
+    }
+
 }
