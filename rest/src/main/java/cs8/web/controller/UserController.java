@@ -49,31 +49,34 @@ public class UserController {
         user.setId(id);
         return userService.updateUser(user);
     }
-    
 
     @GetMapping("dt")
     public User getUser() {
         return new User("Dudás Tamás", "d.tomi97@hotmail.com", LocalDateTime.now(), LocalDateTime.now());
     }
-    
+
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
 
-    @GetMapping("/szm")
-    public User getUser() {
-        return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
-    }
+        @GetMapping("/szm")
+        public User getUser() {
+            return new User("Szabó Máté", "szabo.mate@inf.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
+        }
 
-    @GetMapping("tm")
+        @GetMapping("tm")
         public User getUser() {
             log.info("process=get-users");
             return new User("Telegdy Mátyás", "matyitelegdy@mailbox.unideb.hu", LocalDateTime.now(), LocalDateTime.now());
         }
 
-    @GetMapping("/print")
-    public String print(){
-        return "Szabó Máté-05-02-8:59 Telegdy Mátyás-09-01-6:12";
+        @GetMapping("/print")
+        public String print(){
+            return "Szabó Máté-05-02-8:59 Telegdy Mátyás-09-01-6:12";
+        }
+
+
+
     }
 
 }
