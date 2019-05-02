@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
-        log.info("process=get-user, user_id={}", id);
+        log.info("process=get-user-by-id, user_id={}", id);
         Optional<User> user = userService.getUserById(id);
         return user.map( u -> ResponseEntity.ok(u))
                    .orElse(ResponseEntity.notFound().build());
@@ -53,11 +53,6 @@ public class UserController {
         return userService.updateUser(user);
     }
 
-    @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        log.info("process=delete-user, user_id={}", id);
-        userService.deleteUser(id);
-    }
 
     @GetMapping("/szl")
     public User getUser() {
@@ -69,7 +64,6 @@ public class UserController {
     public String print(){
         System.out.println("Szőllősi László");
         return "Szőllősi László";
-
     }
 
 }
